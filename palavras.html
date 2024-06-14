@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+	<title>CAÇA PALAVRAS | LITERATURA  </title>
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<!-------------------------------------- cabeçalho ----------------------------------------->
+<header class="header" id="header">
+
+	<a href="login-cadastro.html"><img  src="imagens/portuglauciacabecalgo.png" alt="Logo"> </a>
+    
+
+   <nav class="navbar">
+     
+       <a class="diadema" href="inicio.html">INICIO</a>
+      <a class="diadema" href="dicas.html">DICAS</a>
+      <a class="diadema" href="jogos.html">JOGOS</a>
+   </nav>
+</header>
+<br><br><br>
+
+<h1 class="titulao">O QUE TEM A VER COM LITERATURA?</h1>
+
+	<!-------------------------------------- game ----------------------------------------->
+
+
+	<div id="wrap">
+		<div id="tabela"></div>
+		<div id="palavras"><!--<button onclick="importaPalavra()">Hello World</button>--></div>
+	</div>
+	<div id="log"></div>
+	<script src="scrpt.js"></script>
+</body>
+</html>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap'); /*font-family: "Chau Philomene One", sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+:root{
+	--um:#483434;
+	--dois:#ffff;
+	--tres:#bebebe;
+	--quatro:#ffffff;
+}
+
+body{
+	background-color: #175477e5;
+    background-image: linear-gradient( to right, #000000 20%, transparent, rgb(46, 172, 218) );
+}
+
+table {
+	border-collapse:collapse;
+	margin-top: 4%;
+	margin-left: 15%;
+	font-family: "Chau Philomene One", sans-serif;
+	position: relative;
+
+}
+
+.titulao{
+	font-family: 'Press Start 2P', cursive; /* Fonte estilo pixelada */
+	color: white;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.bloco {
+	width:50px;
+	height:50px;
+	border: 1px solid var(--tres);
+	color:black;
+	background-color:white;
+	font-family: "Chau Philomene One", sans-serif;
+	text-align:center;
+	vertical-align:center;
+	font-size:18px;
+	position:relative;
+}
+
+.bloco:hover{
+	background-color: aliceblue;
+	
+}
+
+.escondido{
+	background-color:white;
+}
+
+.achado{
+	background-color:#6cbcebe5;
+
+}
+
+.resolvido{
+	text-decoration: line-through;
+}
+
+.achadoPerm{
+	background-color:#6cbcebe5;
+}
+
+#wrap{
+	display:flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#palavras{
+	display:flex;
+	flex-direction: column;
+    flex-wrap: nowrap;
+	margin:15px;
+	margin-top: 2.9%;
+	font-family: "Chau Philomene One", sans-serif;
+	
+}
+
+.palavraEscondida{
+	border: 1px solid var(--tres);
+	background-color: var(--dois);
+	color:var(--quatro);
+	padding: 10%;
+	font-family: "Chau Philomene One", sans-serif;
+	width: 100%;
+	font-weight:60;
+	color: #000000;
+	
+}
+
+
+
+
+/*header*/
+
+
+.header{
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .header .logo{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: var(--white);
+  }
+  
+  .header .logo i{
+    color: hsl(0, 0%, 100%);
+  
+  }
+
+  .header .navbar a{
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 1rem;
+    text-decoration: none;
+
+  }
+  
+  .header .navbar a:hover{
+    color: #175477e5;
+  }
+
+  .header img  {
+    width: 350px; /* Ajuste a largura conforme necessário */   
+    margin-right: -40px;
+    margin: 0 auto 7px; /* Margem inferior para espaçamento */
+}
+
+  .navbar{
+    color: white;
+    margin-left: 40%;
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+  
+  }
+
+.logo{
+    color: white;   
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+}
+</style>

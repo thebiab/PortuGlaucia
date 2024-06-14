@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <title>LIGANDO PALAVRAS | DISSERTAÇÃO ARGUMETATIVA</title>
+</head>
+<body>
+<h1>◀</h1>
+    <div class="container">
+        <div class="caixa-texto">
+            <h1>LIGANDO PALAVRAS</h1>
+            <p>ARRASTE OS ELEMENTOS DE UMA DISSERTAÇÃO ATÉ SUAS DEFINIÇÕES</p>
+        </div>
+
+        <div class="caixona">
+            <div class="caixa-texto coluna" id="palavras">
+                <h2>Palavras</h2>
+                <ul id="listaPalavras">
+                    <li draggable="true" ondragstart="drag(event)" id="palavra1">Tese</li>
+                    <li draggable="true" ondragstart="drag(event)" id="palavra2">Argumento</li>
+                    <li draggable="true" ondragstart="drag(event)" id="palavra3">Conclusão</li>
+                    <li draggable="true" ondragstart="drag(event)" id="palavra4">Introdução</li>
+                </ul>
+            </div>
+
+            <div class="caixa-texto coluna" id="significados">
+                <h2>Significados</h2>
+                <ul>
+                    <li ondrop="drop(event)" ondragover="allowDrop(event)" id="significado1">Parte inicial da dissertação que apresenta o tema.</li>
+                    <li ondrop="drop(event)" ondragover="allowDrop(event)" id="significado2">Afirmação principal que será defendida.</li>
+                    <li ondrop="drop(event)" ondragover="allowDrop(event)" id="significado3">Raciocínio que sustenta a tese.</li>
+                    <li ondrop="drop(event)" ondragover="allowDrop(event)" id="significado4">Parte final que retoma a tese e os argumentos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="caixa-texto">
+            <button onclick="verificar()">Verificar Respostas</button>
+            <button onclick="recomecar()">Recomeçar</button>
+            <a href="jogos.html"> <button >Voltar</button> </a>
+            <p id="resultado"></p>
+        </div>
+    </div>
+    
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+            event.target.classList.add("arrastar");
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            event.target.appendChild(draggedElement);
+            draggedElement.classList.remove("arrastar");
+        }
+
+        function verificar() {
+            const answers = {
+                "significado1": "palavra4",
+                "significado2": "palavra1",
+                "significado3": "palavra2",
+                "significado4": "palavra3"
+            };
+
+            let correct = 0;
+            for (let definition in answers) {
+                const definitionElement = document.getElementById(definition);
+                const wordElement = definitionElement.querySelector("li");
+                if (wordElement && wordElement.id === answers[definition]) {
+                    correct++;
+                }
+            }
+
+            const resultado = document.getElementById("resultado");
+            if (correct === Object.keys(answers).length) {
+                resultado.textContent = "Parabéns! Você acertou todas as respostas!";
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = `Você acertou ${correct} de ${Object.keys(answers).length} respostas. Tente novamente!`;
+                resultado.style.color = "red";
+            }
+        }
+
+        function recomecar() {
+            const listaPalavras = document.getElementById("listaPalavras");
+            const palavras = ["palavra1", "palavra2", "palavra3", "palavra4"];
+
+            palavras.forEach(wordId => {
+                const wordElement = document.getElementById(wordId);
+                listaPalavras.appendChild(wordElement);
+            });
+
+            const resultado = document.getElementById("resultado");
+            resultado.textContent = "";
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #175477e5;
+            background-image: linear-gradient(to right, #000000 20%, transparent, rgb(46, 172, 218));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Chau Philomene One", sans-serif;
+        }
+
+
+
+        .header{
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .header .logo{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: var(--white);
+  }
+  
+  .header .logo i{
+    color: hsl(0, 0%, 100%);
+  
+  }
+
+  .header .navbar a{
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 1rem;
+    text-decoration: none;
+
+  }
+  
+  .header .navbar a:hover{
+    color: #175477e5;
+  }
+
+  .header img  {
+    width: 350px; /* Ajuste a largura conforme necessário */   
+    margin-right: -40px;
+    margin: 0 auto 7px; /* Margem inferior para espaçamento */
+}
+
+  .navbar{
+    color: white;
+    margin-left: 40%;
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+  
+  }
+
+.logo{
+    color: white;   
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .caixa-texto {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .caixona {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .coluna {
+            width: 45%;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li.arrastar {
+            opacity: 0.5;
+        }
+
+        button {
+            font-family: "Chau Philomene One", sans-serif;
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(21, 95, 122);
+            border: 3px solid rgb(0, 15, 20);
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

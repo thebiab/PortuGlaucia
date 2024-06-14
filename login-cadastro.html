@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta o="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <link rel="icon" type="image/png" href="logo-tenis.png">
+    
+    <title>PORTUGLAUCIA | LOGIN</title>
+</head>
+<body>   
+    <section id="section-form">
+        <form id="login_form" action="#">
+            <!-- FORM HEADER -->
+            <div id="form_header">
+                <h1>LOGIN</h1>
+                <img src="imagens/escuro.png" alt="" id="mode_icon" class="icons">
+            </div>
+
+            <!-- INPUTS -->
+            <div id="inputs">
+                <!-- NAME -->
+                <div class="input-box">
+                    <label class="campos" for="name">
+                        NOME
+                        <div class="input-field">
+                          <img src="imagens/pessoa.png" alt="" id="nome_icon" class="icons">
+                          <input type="text" id="nome" class="tbox">
+                        </div>
+                      </label>
+                </div>
+                
+                <!-- EMAIL -->
+                <div class="input-box">
+                    <label class="campos" for="email">
+                        E-MAIL
+                        <div class="input-field">
+                            <img src="imagens/email.png" alt="" id="email_icon" class="icons">
+                            <input type="text" id="email" class="tbox"><br>
+                        </div>
+                    </label>
+                </div>
+                
+                <!-- PASSWORD -->
+                <div class="input-box">
+                    <label class="campos" for="password">
+                        SENHA
+                        <div class="input-field">
+                            <img src="imagens/senha.png" alt="" id="senha_icon" class="icons">
+                            <input type="password" id="senha" class="tbox"><br>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="cards-container">
+                    <!-- LOGIN BUTTON -->
+                    <a type="button" onclick="cadastrar()" class="button" id="cadastro">Cadastrar</a>
+                    <a type="button" onclick="entrar()" class="button" id="login">Entrar</a>
+                </div>
+            </div>
+
+        </form>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    const modeIcon = document.getElementById('mode_icon');
+
+    modeIcon.addEventListener('click', () => {
+    const form = document.getElementById('login_form');
+    const nomeIcon = document.getElementById('nome_icon');
+    const emailIcon = document.getElementById('email_icon');
+    const senhaIcon = document.getElementById('senha_icon');
+    const body = document.body;
+    
+    const isDarkMode = form.classList.toggle('dark');
+
+    if (isDarkMode) {
+        modeIcon.src = 'imagens/sol.png';
+        nomeIcon.src = 'imagens/pessoa-dark.png';
+        emailIcon.src = 'imagens/email-dark.png';
+        senhaIcon.src = 'imagens/senha-dark.png';
+        body.style.backgroundImage = "url('imagens/fundodark.gif')";
+    } else {
+        modeIcon.src = 'imagens/escuro.png';
+        nomeIcon.src = 'imagens/pessoa.png';
+        emailIcon.src = 'imagens/email.png';
+        senhaIcon.src = 'imagens/senha.png';
+        body.style.backgroundImage = "url('imagens/fundolight.gif')";
+    }
+});
+
+
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBYTJKaTwWL3GB6abtSaXfBNOoOnGFJOvs",
+        authDomain: "e-comerce-1a968.firebaseapp.com",
+        projectId: "e-comerce-1a968",
+        storageBucket: "e-comerce-1a968.appspot.com",
+        messagingSenderId: "297481507288",
+        appId: "1:297481507288:web:b02bd50e7332a121f3a2ad"
+    };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var auth = null; // Define a variável auth globalmente
+
+        function cadastrar() {
+            firebase.auth().createUserWithEmailAndPassword(document.getElementById("email").value, document.getElementById("senha").value)
+                .then(function(user) {
+                    alert("Seu cadastro foi efetuado com sucesso!");
+                    auth = user;
+                }).catch(function(error) {
+                    alert("Falha ao cadastrar. Tente novamente!");
+                });
+        }
+
+        
+       
+        function entrar() {
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+
+
+            firebase.auth().signInWithEmailAndPassword(email, senha)
+                .then(function(user) {
+                    alert("Seu login foi efetuado com sucesso!");
+                    auth = user;
+                    window.location.href = "inicio.html"; // Redireciona para a página home.html
+                }).catch(function(error) {
+                    alert("Falha ao logar: " + error.message, ". Tente novamente!");
+                });
+        }
+
+    </script>
+</body>
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap');
+
+    /** Variables - colors **/
+    :root {
+        /* Light */
+        --color-light-50: #f8fafc;
+
+        /* Dark */
+        --color-dark-50: #797984;
+        --color-dark-100: #312d37;
+        --color-dark-900: #000;
+
+        /* Gradient */
+        --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
+    }
+
+    /* General */
+    * {
+        font-family: "Chau Philomene One", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+            background: url('imagens/fundolight.gif');
+            background-repeat: no-repeat no-repeat;
+            background-size: cover;
+        }
+
+    a {
+        font-size: 80%;
+        color: rgb(46, 172, 218);
+        margin: 5%;
+        cursor: pointer;
+        font-weight: 100;
+        font-family: 'Press Start 2P', cursive;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: rgb(26, 102, 129);
+        transition: 0.5s;
+    }
+
+    .cards-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #section-form {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #login_form {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        background-color: var(--color-light-50);
+        padding: 30px 40px;
+        border-radius: 8px;
+        gap: 30px;
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+        animation: dark-to-light-background 0.3s ease-in-out;
+    }
+
+    /* Form Header */
+    #form_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #form_header h1 {
+        font-size: 40px;
+        position: relative;
+        font-weight: 100;
+        font-family: 'Press Start 2P', cursive;
+    }
+
+    #form_header h1::before {
+        position: absolute;
+        content: '';
+        width: 40%;
+        height: 3px;
+        background-color: rgb(46, 172, 218);
+        bottom: 1px;
+        border-radius: 5px;
+    }
+
+    #mode_icon {
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    img.icons {
+        height: 18px;
+    }
+    
+    /* Inputs */
+    #inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .input-box>label {
+        font-size: 14px;
+        color: var(--color-dark-50);
+    }
+
+    .input-field {
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border-bottom: 2px solid rgb(46, 172, 218);
+        cursor: text;
+    }
+
+    .input-field i {
+        font-size: 18px;
+        cursor: text;
+        color: var(--color-dark-900);
+    } 
+
+    .input-field input {
+        border: none;
+        width: 260px;
+        background-color: transparent;
+        font-size: 18px;
+        padding: 0px 5px;
+    }
+
+    .input-field input:focus {
+        outline: none;
+    }
+
+    /* Forgot password */
+    #forgot_password a {
+        text-decoration: none;
+        color: var(--color-dark-50);
+        font-size: 12px;
+    }
+
+    #forgot_password a:hover {
+        color: var(--color-purple-50);
+    }
+
+    /* Login Button */
+    #login_button {
+        border: none;
+        background: var(--color-gradient);
+        padding: 7px;
+        border-radius: 3px;
+        color: var(--color-light-50);
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    #login_button:hover {
+        transform: scale(1.05);
+    }
+
+    /* Dark Mode */
+    .dark#login_form {
+        color: var(--color-light-50);
+        background-color: var(--color-dark-100);
+        animation: light-to-dark-background 0.3s ease-in-out;
+    }
+
+    .dark#login_form .input-field input,
+    .dark#login_form .input-field i {
+        color: var(--color-light-50);
+    }
+
+    @keyframes dark-to-light-background {
+        0% {
+            background-color: var(--color-dark-100);
+        }
+        100% {
+            background-color: var(--color-light-50);
+        }
+    }
+
+    @keyframes light-to-dark-background {
+        0% {
+            background-color: var(--color-light-50);
+        }
+        100% {
+            background-color: var(--color-dark-100); 
+        }
+    }
+    </style>

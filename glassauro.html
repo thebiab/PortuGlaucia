@@ -1,0 +1,395 @@
+<!-------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PORTUFUGA | CONTO PSICOLÓGICO </title>
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="corpo">    
+        <div>
+            <h2>PORTUFUGA</h2>
+            <p>Colete as palavras que se conectem com Conto Psicológico e evite as palavras não relacionadas. <br>Utilize a barra de espaço para pular</p>
+            <h5</h5>
+          
+        <a href="jogos.html">  <button class="voltar" >Voltar</button></a><br> <br>
+        </div>
+
+        <div id="game-container">
+            <div id="glaucinha"><img src="imagens/gif-dinoglaucia.gif" alt="" class="glaucinha"></div>
+            <div id="chao"></div>
+            <div id="word-container"></div>
+            <div id="pontinhos">Pontuação: 0</div>
+            <div id="vidas">💙💙💙</div>
+            <div id="bloquinhos" class="hidden">
+                <h3 id="significadotitulo"></h3>
+                <p id="descricaoSignificado"></p><br>
+                <button id="fechar">Fechar</button><br>
+                
+               <br> <div id="timer">RETOMANDO EM: 3</div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /*font-family: 'Press Start 2P', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap'); /*font-family: "Chau Philomene One", sans-serif;*/
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #175477e5;
+    background-image: linear-gradient(to right, #000000 20%, transparent, rgb(46, 172, 218));
+}
+
+h2{
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: 32px;
+}
+
+.voltar{
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 10px;
+    border: 3px solid rgb(0, 15, 20);
+    background-color: rgb(21, 95, 122);
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+  transition: all 0.3s ease;
+
+}
+
+.corpo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+p, h5{
+    font-family: "Chau Philomene One", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+    color: white;
+    font-size: 20px;
+    
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+#glaucinha {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    height: 140px;
+    display: hidden;
+}
+
+.glaucinha{
+    position: fixed;
+    display: flex;
+    height: 150px;
+
+}
+
+#chao {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #080808;
+}
+
+#word-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.word {
+    position: absolute;
+    bottom: 20px;
+    width: auto;
+    height: 20px;
+    padding: 4px;
+    font-size: 16px;
+    border-radius: 3px;
+    pointer-events: none;
+    text-transform: uppercase;
+    font-family: "Chau Philomene One", sans-serif;
+    font-weight: 100;
+}
+
+#pontinhos {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Chau Philomene One", sans-serif;
+    text-transform: uppercase;
+}
+
+#vidas {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#bloquinhos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#bloquinhos.hidden {
+    display: none;
+}
+
+#bloquinhos.visible {
+    display: block;
+}
+
+#bloquinhos h3 {
+    margin-top: 0;
+}
+
+#bloquinhos p {
+    margin: 10px 0;
+}
+
+#bloquinhos button {
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    border: 3px solid rgb(0, 15, 20);
+    background-color: rgb(21, 95, 122);
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#descricaoSignificado{
+    color: black;
+    font-family: "Chau Philomene One", sans-serif;
+}
+
+#timer {
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgb(46, 172, 218)
+}
+
+</style>
+
+
+<script>
+    const glaucinha = document.getElementById('glaucinha');
+const caixonaFundo = document.getElementById('word-container');
+const pontos = document.getElementById('pontinhos');
+const coracoes = document.getElementById('vidas');
+const bloquinhos = document.getElementById('bloquinhos');
+const tituloSignificado = document.getElementById('significadotitulo');
+const significado = document.getElementById('descricaoSignificado');
+const botaoFechar = document.getElementById('fechar');
+const timerElement = document.getElementById('timer');
+
+let pontinhos = 0;
+let vidas = 3;
+let isJumping = false;
+let wordTimer;
+let gamePaused = false;
+
+// Palavras relacionadas ao conto psicológico com descrições
+const relacionadas = {
+    "FOCO INTERNO": "A atenção está voltada para os pensamentos e sentimentos do personagem.",
+    "CONFLITO": "Enfrentamento de forças opostas que gera tensão na narrativa.",
+    "NARRADOR": "Aquele que conta a história e pode ser onisciente ou limitado.",
+    "SIMBOLISMO": "Uso de símbolos para representar ideias ou conceitos profundos.",
+    "AMBIGUIDADE": "Situações ou textos que podem ter mais de uma interpretação.",
+    "PSICOLOGIA": "Estudo da mente e comportamento dos personagens.",
+    "EMOÇÃO": "Sentimentos intensos que influenciam as ações dos personagens.",
+    "MENTE": "Processos mentais e a consciência dos personagens.",
+    "TRAUMA": "Experiências dolorosas que afetam os personagens profundamente.",
+    "INSTROSPECÇÃO": "Reflexão profunda sobre si mesmo e os próprios sentimentos."
+};
+
+// Palavras não relacionadas ao conto psicológico
+const naoRelacionadas = [
+    "Carro", "Casa", "Computador", "Árvore", "Cachorro",
+    "Telefone", "Mesa", "Cadeira", "Livro", "Janela"
+];
+
+// Movimenta o glaucinhassauro para cima
+function jump() {
+    if (isJumping) return;
+    isJumping = true;
+    let upInterval = setInterval(() => {
+        if (glaucinha.style.bottom === '150px') {
+            clearInterval(upInterval);
+            let downInterval = setInterval(() => {
+                if (glaucinha.style.bottom === '20px') {
+                    clearInterval(downInterval);
+                    isJumping = false;
+                } else {
+                    glaucinha.style.bottom = parseInt(glaucinha.style.bottom) - 5 + 'px';
+                }
+            }, 20);
+        } else {
+            glaucinha.style.bottom = parseInt(glaucinha.style.bottom) + 5 + 'px';
+        }
+    }, 20);
+}
+
+// Detecta colisão entre o glaucinhassauro e a palavra
+function detectCollision(wordElement) {
+    const glaucinhaRect = glaucinha.getBoundingClientRect();
+    const wordRect = wordElement.getBoundingClientRect();
+
+    return !(
+        glaucinhaRect.top > wordRect.bottom ||
+        glaucinhaRect.bottom < wordRect.top ||
+        glaucinhaRect.right < wordRect.left ||
+        glaucinhaRect.left > wordRect.right
+    );
+}
+
+// Cria uma nova palavra no jogo
+function createWord() {
+    if (gamePaused) return;
+
+    const isRelated = Math.random() > 0.5;
+    const word = isRelated ? Object.keys(relacionadas)[Math.floor(Math.random() * Object.keys(relacionadas).length)] :
+                              naoRelacionadas[Math.floor(Math.random() * naoRelacionadas.length)];
+    const wordElement = document.createElement('div');
+    wordElement.classList.add('word');
+    wordElement.style.left = '800px';
+    wordElement.textContent = word;
+    wordElement.dataset.related = isRelated;
+    caixonaFundo.appendChild(wordElement);
+
+    const moveWord = setInterval(() => {
+        if (gamePaused) {
+            clearInterval(moveWord);
+            caixonaFundo.removeChild(wordElement);
+            return;
+        }
+
+        if (parseInt(wordElement.style.left) <= -50) {
+            clearInterval(moveWord);
+            caixonaFundo.removeChild(wordElement);
+        } else {
+            wordElement.style.left = parseInt(wordElement.style.left) - 5 + 'px';
+        }
+
+        if (detectCollision(wordElement)) {
+            clearInterval(moveWord);
+            caixonaFundo.removeChild(wordElement);
+            if (wordElement.dataset.related === 'true') {
+                pontinhos += 10;
+                pontos.textContent = `Pontuação: ${pontinhos}`;
+                showDescription(word);
+            } else {
+                vidas--;
+                updatevidas();
+                if (vidas === 0) {
+                    endGame();
+                }
+            }
+        }
+    }, 20);
+}
+
+// Atualiza o número de vidas
+function updatevidas() {
+    coracoes.textContent = '💙'.repeat(vidas);
+}
+
+// Termina o jogo
+function endGame() {
+    clearInterval(wordTimer);
+    alert('Game Over! Sua pontuação final é: ' + pontinhos);
+    location.reload();
+}
+
+// Exibe a descrição da palavra relacionada e pausa o jogo
+function showDescription(word) {
+    gamePaused = true;
+    tituloSignificado.textContent = word;
+    significado.textContent = relacionadas[word];
+    bloquinhos.classList.remove('hidden');
+    bloquinhos.classList.add('visible');
+
+    let seconds = 3;
+    timerElement.textContent = `RETOMANDO EM: ${seconds}`;
+    const countdown = setInterval(() => {
+        seconds--;
+        timerElement.textContent = `RETOMANDO EM: ${seconds}`;
+        if (seconds === 0) {
+            clearInterval(countdown);
+            gamePaused = false;
+            bloquinhos.classList.remove('visible');
+            bloquinhos.classList.add('hidden');
+        }
+    }, 1000);
+}
+
+// Fecha o bloco de descrição
+botaoFechar.addEventListener('click', () => {
+    bloquinhos.classList.remove('visible');
+    bloquinhos.classList.add('hidden');
+});
+
+// Inicia o jogo
+function startGame() {
+    wordTimer = setInterval(createWord, 2000);
+}
+
+// Detecta o pressionamento da tecla de espaço para pular
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        jump();
+    }
+});
+
+// Inicializa o jogo
+glaucinha.style.bottom = '20px';
+startGame();
+
+
+</script>

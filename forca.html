@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"rel="stylesheet"/>
+    <title>JOGO DA FORCA | CRÔNICAS JORNALÍSTICAS</title>
+  </head>
+  <body>
+<br><br><br><br><br>
+<!-------------------------------------- cabeçalho ----------------------------------------->
+<header class="header" id="header">
+
+  <a href="jogos.html"><img  src="imagens/portuglauciacabecalgo.png" alt="Logo"> </a>
+  
+</header>
+
+    <h1 class="title">JOGO DA FORCA</h1>
+   
+    <h2 class="tema">CRÔNICAS JORNALÍSTICAS </h2>
+    <h2 class="title2">DIGITE UMA LETRA NO TECLADO, E TENTE ADIVINHAR.</h2>
+    <br><br><br><br><br>
+    <div class="jogo-container">
+      <div class="forca-container">
+        <svg height="450" width="150" class="forca">
+          <!-- forca -->
+          <line x1="20" y1="20" x2="140" y2="20" />
+          <line x1="140" y1="20" x2="140" y2="50" />
+          <line x1="20" y1="20" x2="20" y2="300" />
+          <line x1="0" y1="300" x2="100" y2="300" />
+        </svg>
+    <div>
+        <!-- cabeça -->
+        <img src="imagens/cabeca.png" alt="" class="forca-parte" height="80px" style="margin-left: 90px; margin-top: 50px; position: fixed;">
+        <!-- corpo -->
+        <img src="imagens/corpo.png" alt="" height="50px" class="forca-parte" style="margin-left: 117px; margin-top: 127px; position: fixed;">
+        <!-- braços -->
+        <img src="imagens/bracoesq.png" alt="" class="forca-parte" height="40px" style="margin-right: 0; margin-left: 100px; margin-top: 127px; position: fixed;">
+        <img src="imagens/bracodir.png" alt="" class="forca-parte" height="40px" style="margin-right: 0; margin-left: 152px; margin-top: 127px; position: fixed;">
+        <!-- pernas -->
+        <img src="imagens/pernaesq.png" alt="" class="forca-parte" height="20px" style="margin-right: 0; margin-left: 118px; margin-top: 178px; position: fixed;">
+        <img src="imagens/pernadir.png" alt="" class="forca-parte" height="20px" style="margin-right: 0; margin-left: 142px; margin-top: 178px; position: fixed;">
+            
+    </div>
+      </div>
+
+      <div class="letras-erradas-container">
+        <h4 class="erradas">LETRAS ERRADAS</h4>
+      </div>
+    </div>
+
+    <br><br><br><br><br><br><br>
+
+    <div class="palavra-secreta-container"></div>
+
+    <div class="aviso-palavra-repetida">
+      Você já usou essa letra!
+    </div>
+
+    <div class="popup-container">
+      <div class="popup">
+        <h2 id="mensagem"></h2>
+        <button id="btn-jogar" onclick="reiniciarJogo()">
+          Jogar novamente
+        </button>
+      </div>
+    </div>
+
+    <script src="script1.js"></script>
+
+
+    
+  </body>
+</html>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap'); /*font-family: "Chau Philomene One", sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #175477e5;
+    background-image: linear-gradient( to right, #000000 20%, transparent, rgb(46, 172, 218) );
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-style: normal; 
+    text-transform: uppercase;
+  }
+
+  
+.header{
+ 
+ top: 0; left: 0; right: 0;
+ z-index: 1000;
+ 
+ box-shadow: var(--box-shadow);
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 2rem 5%;
+ border-bottom-left-radius: 60px;
+ border-bottom-right-radius: 40px;
+}
+
+.header .logo{
+ font-size: 1.5rem;
+ font-weight: bolder;
+ color: var(--white);
+}
+
+.header .logo i{
+ color: hsl(0, 0%, 100%);
+
+}
+
+.header .navbar a{
+ font-size: 2.2rem;
+ color: #ffffff;
+ margin: 0 1rem;
+ text-decoration: none;
+
+}
+
+.header .navbar a:hover{
+ color: #175477e5;
+}
+
+.header img  {
+ width: 250px; /* Ajuste a largura conforme necessário */   
+ margin-right: -40px;
+ margin: 0 auto 7px; /* Margem inferior para espaçamento */
+}
+
+.navbar{
+ color: white;
+ margin-left: 40%;
+ font-family: "Chau Philomene One", sans-serif ;
+ text-decoration: none;
+
+}
+
+.logo{
+ color: white;   
+ font-family: "Chau Philomene One", sans-serif ;
+ text-decoration: none;
+}
+  
+
+
+.title{
+  font-family: "Press Start 2P", system-ui;
+
+}
+
+.title2{
+  font-family: "Chau Philomene One", sans-serif ;
+  letter-spacing: 2%; letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: -0.5%;
+}
+
+.tema{
+  font-family: "Chau Philomene One", sans-serif ;
+  font-size: 1.5rem;
+  letter-spacing: 5px;
+  border: 2px #000000;
+}
+
+.erradas{
+  font-family: "Press Start 2P", system-ui;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+  .jogo-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+
+
+  
+  .forca {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    position: fixed;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .forca-parte {
+    display: none;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .letras-erradas-container {
+    font-size: 32px;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .letras-erradas-container span {
+    margin: 0 2px;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .palavra-secreta-container {
+    font-size: 45px;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .aviso-palavra-repetida {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    position: absolute;
+    bottom: -55px;
+    transition: transform 0.3s ease-in-out;
+    font-family: "Chau Philomene One", sans-serif ;
+  }
+  
+  .aviso-palavra-repetida p {
+    margin: 0;
+  }
+  
+  .aviso-palavra-repetida.show {
+    transform: translateY(-50px);
+  }
+  
+  .palavra-secreta-container span {
+    margin: 0 5px;
+  }
+  
+  .popup-container {
+    background-color: rgba(0, 0, 0, 0.849);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup {
+    background: #2980b9;
+    border-radius: 30px;
+    border: 5px #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-family: "Press Start 2P", system-ui;
+  }
+  
+  .popup button {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    font-family: "Chau Philomene One", sans-serif ;
+
+  }
+
+  .forca-container{
+
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  
+</style>

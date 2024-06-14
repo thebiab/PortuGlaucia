@@ -1,0 +1,136 @@
+<!----------------------------------- JOGO DA MEMÓRIA - PARTE 01 --------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+  <script defer src="1 - Resenha.html"></script>
+  <script defer src="2 - Resenha.html"></script>
+
+  <title>MEMORY GAME| RESENHA</title>
+</head>
+
+<body>
+
+  <!------------------------------------------------- ESTILOS ------------------------------------------>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  body{
+    color: rgb(255, 255, 255);
+    background-color: #175477e5;
+    background-image: linear-gradient( to right, #000000 20%, transparent, rgb(46, 172, 218) );
+  }
+  
+    .login-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .login__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .login__header img {
+    width: 250px;
+  }
+  
+  .login__header h1 {
+    color: rgb(200, 240, 255);
+    font-size: 1.5em;
+  }
+  
+  .login__input {
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 15px;
+    max-width: 300px;
+    outline: none;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .login__button {
+    background-color: rgb(21, 95, 122);
+    border: 3px solid rgb(0, 15, 20);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 300px;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .login__button:disabled {
+    background-color: #eee;
+    border: 2px solid #969595;
+    color: #aaa;
+    cursor: auto;
+  }
+  </style>
+
+  <form class="login-form">
+
+    <div class="login__header">
+      <img src="imagens/logo portuglaucia.png" alt="logo"><br><br>
+      <h1>MEMORY GAME</h1><br>
+      <P>Resenha</P>
+    </div>
+
+    <input type="text" placeholder = "Name" class="login__input">
+    <button type="submit" class="login__button">JOGAR</button>
+
+  </form>
+
+</body>
+
+</html>
+
+<!------------------------------------------------- JAVASCRIPT ------------------------------------------>
+<script>
+const input = document.querySelector('.login__input');
+const button = document.querySelector('.login__button');
+const form = document.querySelector('.login-form');
+
+const validateInput = ({ target }) => {
+  if (target.value.length > 3) {
+    button.removeAttribute('disabled');
+    return;
+  }
+
+  button.setAttribute('disabled', '');
+}
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  localStorage.setItem('nome', input.value);
+  window.location = '2 - Resenha.html';
+}
+
+input.addEventListener('input', validateInput);
+form.addEventListener('submit', handleSubmit);
+</script>
+

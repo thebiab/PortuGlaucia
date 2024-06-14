@@ -1,0 +1,439 @@
+<!-------------------------------------------- JOGO DE VERDADEIRO E FALSO -------------------------------------->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>VERDADEIRO OU FALSO | ARTIGO DE OPINIÃO</title>
+</head>
+<body>
+    <header class="header" id="header">
+
+        <a href="login-cadastro.html"><img  src="imagens/portuglauciacabecalgo.png" alt="Logo"> </a>
+        
+    
+       <nav class="navbar">
+         
+           <a class="diadema" href="inicio.html">INICIO</a>
+          <a class="diadema" href="dicas.html">DICAS</a>
+          <a class="diadema" href="jogos.html">JOGOS</a>
+
+
+       </nav>
+    </header>
+<br><br><br>
+    <h1>Jogo de Artigo de Opinião</h1>
+
+    <div id="game-container">
+
+        <div id="question-container">
+            <p id="question">Esta afirmação é um elemento de um artigo de opinião:</p>
+            <button id="trueBtn">Verdadeiro</button>
+            <button id="falseBtn">Falso</button>
+        
+        </div>
+        
+        <p id="score">Pontuação: <span id="score-value">0</span></p>
+        
+        
+        <div id="result-container" style="display: none;">
+            <h2>Resultado</h2>
+            <table id="result-table">
+                <tr>
+                    <th>Questão</th>
+                    <th>Pergunta</th>
+                    <th>Resposta correta</th>
+                    <th>Sua resposta</th>
+                </tr>
+            </table>
+        </div>
+    
+    </div>
+    <button class="eightbit-btn" id="restartBtn">Reiniciar</button><br style="margin-bottom: 10%;">
+</body>
+<!-------------------------------------- FOOTER ----------------------------------------->
+<footer class="pixel-art-footer">
+    <div class="footer-content">
+      <br>
+        <h1 class="footer-title">PortuGlaucia</h1>
+        <p class="footer-description">
+           Aqui você encontra material de apoio, jogos para colocar seu conhecimento em prática, e
+           aprender coisas novas na língua portuguesa.
+        </p>
+        
+        <div class="social-icons">
+            <a href="https://clubedeautores.com.br/livro/shoes-rumo-ao-sol" class="icon"><img src="imagens/menu_book_40dp_FILL0_wght400_GRAD0_opsz40.png" alt="Facebook"></a>
+            <a href="https://open.spotify.com/show/3EkcI3lSMxblr7cwYMeP2V" class="icon"><img src="imagens/spotify_icon_136176.png" alt="Twitter"></a>
+        
+        </div>
+    </div>
+    <div class="footer-bottom">
+    
+        <p>&copy;2024 SENAI DIADEMA      <a class="link_footer" href="#">PORTUGLAUCIA</a></p>
+    </div>
+  </footer>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap');
+
+
+body {
+    margin: 0 auto;
+    text-align: center; 
+    color: rgb(255, 255, 255);
+    background-color: #175477e5;
+    background-image: linear-gradient( to right, #000000 20%, transparent, rgb(46, 172, 218) );
+    font-family: "Chau Philomene One", sans-serif;
+    font-size: 110%;
+}
+
+
+.header{
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .header .logo{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: var(--white);
+  }
+  
+  .header .logo i{
+    color: hsl(0, 0%, 100%);
+  
+  }
+
+  .header .navbar a{
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 1rem;
+    text-decoration: none;
+
+  }
+  
+  .header .navbar a:hover{
+    color: #175477e5;
+  }
+
+  .header img  {
+    width: 350px; /* Ajuste a largura conforme necessário */   
+    margin-right: -40px;
+    margin: 0 auto 7px; /* Margem inferior para espaçamento */
+}
+
+  .navbar{
+    color: white;
+    margin-left: 40%;
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+  
+  }
+
+.logo{
+    color: white;   
+    font-family: "Chau Philomene One", sans-serif ;
+    text-decoration: none;
+}
+#game-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 1% auto;
+    padding: 20px;
+    background-color: #00000074;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ffffff;
+    margin-top: 3%;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+
+h2{
+    font-family: 'Press Start 2P', cursive; 
+    text-transform: uppercase;
+    color: rgb(152, 226, 255);
+}
+
+p{
+    font-size: 150%;
+    margin-bottom: 5%;
+}
+
+#question-container {
+    margin-top: 20px;
+}
+
+button {
+  border: 3px solid rgb(0, 15, 20);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 90%;
+  max-width: 20%;
+  padding: 1%;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  background-color: rgb(21, 95, 122);
+  text-transform: uppercase;
+  margin-bottom: 3%;
+}
+
+#score {
+    margin-top: 3%;
+    font-weight: 100;
+    color: rgb(152, 226, 255);
+    text-transform: uppercase;
+}
+
+#score-value{
+    font-weight: 200;
+    color: #fff;
+}
+
+#result-container {
+    margin-top: 30px;
+}
+
+#result-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#result-table th{
+    text-transform: uppercase;
+}
+
+#result-table th, #result-table td {
+    border: 1px solid rgb(29, 109, 137);
+    padding: 1%;
+    text-align: left;
+}
+
+#result-table th {
+    background-color: #173b4f;
+    color: rgb(152, 226, 255);
+    font-weight: 100;
+}
+
+
+ /* footer */
+    
+       
+ .pixel-art-footer {
+    color: #fff;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 12px;
+    font-family: "Press Start 2P", system-ui;
+    background-color: #000000;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+ /* Fonte de pixel art */
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.footer-title {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #fff;
+    font-family: "Press Start 2P", system-ui;
+
+}
+
+.footer-description {
+    margin: 12px 0 20px;
+    color: #ddd;
+    font-size: 25px;
+    font-family: "Chau Philomene One";
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons .icon {
+    margin: 0 7px;
+    display: inline-block;
+}
+
+.social-icons .icon img {
+    width: 40px;
+    height: 40px;
+   /* Mantém o estilo pixel art */
+}
+
+.footer-bottom {
+    background-color: black;
+    padding: 7px 0;
+}
+
+.footer-bottom p, .footer-nav a {
+    color: #ccc;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+
+.link_footer{
+  text-decoration: none;
+  color: #ccc;
+}
+
+
+</style>
+
+<script>
+const questionElement = document.getElementById('question');
+const trueBtn = document.getElementById('trueBtn');
+const falseBtn = document.getElementById('falseBtn');
+const scoreElement = document.getElementById('score-value');
+const restartBtn = document.getElementById('restartBtn');
+const resultContainer = document.getElementById('result-container');
+const resultTable = document.getElementById('result-table');
+
+const questions = [
+    'Os artigos de opinião são sempre escritos por especialistas no assunto abordado.', // Falso
+    'Os artigos de opinião geralmente expressam apenas um ponto de vista.', // Verdadeiro
+    'Um artigo de opinião pode conter evidências e argumentos para apoiar a posição do autor.', // Verdadeiro
+    'Os artigos de opinião são geralmente objetivos e imparciais em sua abordagem.', // Falso
+    'Um artigo de opinião pode influenciar a opinião pública sobre um determinado assunto.', // Verdadeiro
+    'A estrutura de um artigo de opinião geralmente inclui uma introdução, um desenvolvimento dos argumentos e uma conclusão.', // Verdadeiro
+    'É comum encontrar elementos de persuasão em um artigo de opinião.', // Verdadeiro
+    'Os artigos de opinião são exclusivamente encontrados em jornais e revistas impressos.', // Falso
+    'Um artigo de opinião pode ser baseado em fatos, mas também pode incluir a visão pessoal do autor sobre o assunto.', // Verdadeiro
+    'Um artigo de opinião não precisa necessariamente apresentar uma solução para o problema discutido.', // Verdadeiro
+    'Os artigos de opinião são uma forma eficaz de expressar pontos de vista sobre questões sociais e políticas.', // Verdadeiro
+    'Um artigo de opinião é sempre claramente rotulado como tal, para distinguir das notícias objetivas.', // Verdadeiro
+    'Os artigos de opinião geralmente apresentam uma narrativa factual sobre o assunto em discussão.', // Falso
+    'Os artigos de opinião são exclusivamente escritos por jornalistas profissionais.', // Falso
+    'O propósito principal de um artigo de opinião é informar os leitores sobre os fatos.' // Falso
+];
+
+const correctAnswers = [
+    'Falso',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Falso',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Falso',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Verdadeiro',
+    'Falso',
+    'Falso',
+    'Falso'
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let results = [];
+
+// -------------------------- p carregar a próxima pergunta -----------------------------
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion;
+}
+
+// ------------------------ verifica a resposta do jogador ------------------------------
+function checkAnswer(isTrue) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = correctAnswers[currentQuestionIndex];
+    const playerAnswer = isTrue ? 'Verdadeiro' : 'Falso';
+    const isCorrect = playerAnswer === correctAnswer;
+
+    if (isCorrect) {
+        score++;
+    }
+
+    results.push({
+        number: currentQuestionIndex + 1,
+        question: currentQuestion,
+        correct: isCorrect,
+        answer: playerAnswer
+    });
+
+    scoreElement.textContent = score;
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        displayResults();
+    }
+}
+
+// ----------------------------- mostrar os resultados ---------------------------------
+function displayResults() {
+    resultContainer.style.display = 'block';
+    resultTable.innerHTML = `
+        <tr>
+            <th>Questão</th>
+            <th>Pergunta</th>
+            <th>Resposta correta</th>
+            <th>Sua resposta</th>
+        </tr>
+    `;
+    results.forEach(result => {
+        const row = document.createElement('tr');
+        const answerColor = result.correct ? ' rgb(46, 172, 218)' : 'rgb(255, 139, 139)';
+        row.innerHTML = `
+            <td>${result.number}</td>
+            <td>${result.question}</td>
+            <td>${correctAnswers[result.number - 1]}</td>
+            <td style="color: ${answerColor};">${result.answer}</td>
+        `;
+        resultTable.appendChild(row);
+    });
+
+    finalScoreElement.textContent = score;
+}
+
+// -------------------------------- reiniciar o jogo -----------------------------------
+function restartGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    results = [];
+    scoreElement.textContent = score;
+    resultContainer.style.display = 'none';
+    loadQuestion();
+}
+
+// --------------------------- eventos de clique aos botões ----------------------------
+trueBtn.addEventListener('click', () => checkAnswer(true));
+falseBtn.addEventListener('click', () => checkAnswer(false));
+restartBtn.addEventListener('click', restartGame);
+
+// --------------------- carrega a primeira pergunta ao iniciar o jogo -----------------
+loadQuestion();
+
+</script>

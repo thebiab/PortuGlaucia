@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/cabeca glaucia.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <title>PORTUGLAUCIA | JOGOS EDUCATIVOS DE LÍNGUA PORTUGUESA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap'); /*font-family: "Chau Philomene One", sans-serif;*/
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    
+    body{
+      background-color: #175477e5;
+        background-image: linear-gradient( to right, #000000 20%, transparent, rgb(46, 172, 218) );
+        
+    }
+    
+    
+    .header{
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 5%;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 40px;
+      }
+    
+      .header .logo{
+        font-size: 1.5rem;
+        font-weight: bolder;
+        color: var(--white);
+      }
+      
+      .header .logo i{
+        color: hsl(0, 0%, 100%);
+      
+      }
+    
+      .header .navbar a{
+        font-size: 2.2rem;
+        color: #ffffff;
+        margin: 0 1rem;
+        text-decoration: none;
+    
+      }
+      
+      .header .navbar a:hover{
+        color: #175477e5;
+      }
+    
+      .header img  {
+        width: 350px; /* Ajuste a largura conforme necessário */   
+        margin-right: -40px;
+        margin: 0 auto 7px; /* Margem inferior para espaçamento */
+    }
+    
+      .navbar{
+        color: white;
+        margin-left: 40%;
+        font-family: "Chau Philomene One", sans-serif ;
+        text-decoration: none;
+      
+      }
+    
+    .logo{
+        color: white;   
+        font-family: "Chau Philomene One", sans-serif ;
+        text-decoration: none;
+    }
+    
+    /*capa*/
+    
+    
+    .capa {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       margin-left: 13%;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+    }
+    
+    .header {
+        text-align: center;
+    }
+    
+    .welcome-message {
+        font-size: 1.8rem;
+        font-family: 'Press Start 2P', cursive; /* Fonte estilo pixelada */
+        margin-left: 1%;
+        margin-top: -50%;
+        text-transform: uppercase;
+    }
+    
+    
+    .username {
+        font-size: 1.2em;
+        background-color: #fff;
+        color: #000;
+        padding: 5px 10px;
+        margin-left: 10px;
+        border-radius: 10px;
+        font-family: 'Press Start 2P', cursive; /* Fonte estilo pixelada */
+    }
+    
+    
+    
+    
+    /*segunda parte*/
+    
+    .jogos {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+        margin: 0;
+        flex-direction: column;
+    }
+    
+    .jogos1 {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        margin-left: 30%;
+        margin-top: -7%;
+    }
+    
+    .container {
+        text-align: center;
+    }
+    
+    header h1 {
+        font-size: 3em;
+    }
+    
+    .content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 60%;
+    }
+    
+    
+    .buttons button {
+        width: 200px;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #ff5722;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+    
+    
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: -25%;
+    }
+    
+    .avatar {
+        position: relative;
+    }
+    
+    .avatar img {
+        width: 200px;
+        height: 255px;
+    }
+    
+    #edit-avatar-btn {
+        color: #fff;
+        top: 0;
+        right: 0;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        border-radius: 20px;
+        
+    }
+    
+    .avatar-title{
+        font-family: "Press Start 2P", system-ui;
+        font-size: 2.4rem; 
+        
+    }
+    
+    #nickname {
+        margin-top: 20px;
+        padding: 15px 50px;
+        font-size: 1.2em;
+        border-radius: 20px;
+        border: none;
+        text-align: center;
+        margin-left: -12%;
+        font-family: "Chau Philomene One", sans-serif;
+        text-transform: uppercase;
+    }
+    
+    #save-nickname-btn {
+        margin-top: 10px;
+        padding: 10px 30px;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        color: black;
+        cursor: pointer;
+        background: #fff;
+        font-family: "Chau Philomene One", sans-serif;
+        margin-left: -12%;
+    }
+    
+    #save-nickname-btn:hover{
+        background: #30588d;
+        
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        background-color: #0a3249;
+        color: rgb(255, 255, 255);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: "Chau Philomene One", sans-serif ;
+        font-size: 2rem;
+    }
+    
+    .avatar-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .avatar-grid img {
+        width: 130px;
+        height: 155px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    
+    .avatar-grid img.selected {
+        border: 2px solid #ffffff;
+    }
+    
+    #confirm-avatar-btn{
+        font-family: "Chau Philomene One", sans-serif;
+        width: 10%;
+        height: 30%;
+        font-size: 1.3rem;
+        border-radius: 20px;
+    }
+    
+    #current-avatar{
+        width: 160px ;
+        height: 180px ;
+        margin-left: -7%;
+    }
+    
+    
+    /*containers*/
+    
+    
+    
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+    }
+    
+    .card {
+        background: #175477e5;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+    
+    .letramaior{
+        font-family: 'Press Start 2P', cursive; /* Fonte estilo pixelada */
+        font-size: 0.5rem;
+        line-height: 1.5rem;
+    }
+    
+    .card:hover {
+        transform: scale(1.05);
+    }
+    
+    .card i {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    
+    .card h3 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+    
+    .card p {
+        font-family: "Chau Philomene One", sans-serif ;
+        color: white;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .card button {
+        background: black;
+        border: none;
+        color: white;
+        padding: 10px;
+        font-size: 0.9em;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Chau Philomene One", sans-serif ;
+        
+    
+    }
+    
+    .card button:hover {
+        background: #333;
+    }
+    
+    
+    
+     /* footer */
+        
+           
+     .pixel-art-footer {
+        color: #fff;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 12px;
+        font-family: "Press Start 2P", system-ui;
+        background-color: #000000;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+     /* Fonte de pixel art */
+    }
+    
+    .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: "Press Start 2P", system-ui;
+    }
+    
+    .footer-title {
+        font-size: 24px;
+        margin: 10px 0;
+        color: #fff;
+        font-family: "Press Start 2P", system-ui;
+    
+    }
+    
+    .footer-description {
+        margin: 12px 0 20px;
+        color: #ddd;
+        font-size: 25px;
+        font-family: "Chau Philomene One";
+    }
+    
+    .social-icons {
+        margin: 20px 0;
+    }
+    
+    .social-icons .icon {
+        margin: 0 7px;
+        display: inline-block;
+    }
+    
+    .social-icons .icon img {
+        width: 40px;
+        height: 40px;
+       /* Mantém o estilo pixel art */
+    }
+    
+    .footer-bottom {
+        background-color: black;
+        padding: 7px 0;
+    }
+    
+    .footer-bottom p, .footer-nav a {
+        color: #ccc;
+        margin: 0 5px;
+        text-decoration: none;
+        font-size: 12px;
+    }
+    
+    .footer-nav a:hover {
+        text-decoration: underline;
+    }
+    
+    
+    .link_footer{
+      text-decoration: none;
+      color: #ccc;
+    }
+    
+    
+        
+    
+    
+    
+    </style>
+<!-------------------------------------- cabeçalho ----------------------------------------->
+<header class="header" id="header">
+
+    <a href="login-cadastro.html"><img  src="imagens/portuglauciacabecalgo.png" alt="Logo"> </a>
+    
+
+   <nav class="navbar">
+     
+       <a class="diadema" href="inicio.html">INICIO</a>
+      <a class="diadema" href="dicas.html">DICAS</a>
+     
+   </nav>
+</header>
+<br>
+<!------------------------------------------escolher avatar------------------------------->
+<section class="jogos1" >
+    <div class="container">
+        <header>
+            
+        </header>
+        <main>
+            <div class="content">
+                <div class="profile">
+                    <div class="avatar">
+                        <h1 class="avatar-title">ESCOLHA SEU AVATAR</h1> <br>
+                        <img id="current-avatar" src="imagens/userr.png" alt="Avatar">
+                       <button id="edit-avatar-btn">✎</button>
+                    </div>
+                    <input type="text" id="nickname" placeholder="Digite seu apelido">
+                    <br>
+                    <button  id="save-nickname-btn">SALVAR</button>
+                </div> 
+            </div>
+        </main>
+    </div>
+    <div id="avatar-modal" class="modal">
+        <div class="modal-content">
+            <h2>AVATAR</h2>
+            <div class="avatar-grid">
+              
+                <img src="imagens/bixo2.png" alt="Avatar 2">
+                <img src="imagens/bixo3.png" alt="Avatar 3">
+                <img src="imagens/bixo4.png" alt="Avatar 4">
+                <img src="imagens/bixo5.png" alt="Avatar 5">
+                <img src="imagens/bixo6.png" alt="Avatar 6">
+                <img src="imagens/bixo7.png" alt="Avatar 7">
+                <img src="imagens/bixo8.png" alt="Avatar 8">
+                <img src="imagens/bixo9.png" alt="Avatar 9">
+                <img src="imagens/bixo10.png" alt="Avatar 10">
+                <!-- Adicione mais avatares conforme necessário -->
+            </div>
+            
+            <button id="confirm-avatar-btn">SALVAR</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</section>
+<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!-------------------------------------- capa do site ----------------------------------------->
+
+<section class="jogos">
+    <div class="welcome-message" id="welcome-message"></div> <br><br><br><br><br>
+    <div class="cards-container">
+        <div>
+        <div class="card">
+           
+            <h3 class="letramaior">MEMORY GAME</h3>
+            <p>Jogo da memória: Resenha</p>
+           <a href="1 - Resenha.html"><button>JOGAR</button></a> 
+        </div>
+        <div class="card">
+            
+            <h3 class="letramaior">CAÇA PALAVRAS</h3>
+            <p>Caça palavras: Literatura</p>
+          <a href="palavras.html"> <button>JOGAR</button></a> 
+        </div></div>
+        <div>
+        <div class="card">
+       
+            <h3 class="letramaior">JOGO DA FORCA</h3>
+            <p>Forca: Crônica Jornalística</p>
+           <a href="forca.html"> <button>JOGAR</button></a>
+        </div>
+        <div class="card">
+           
+            <h3 class="letramaior">VERDADEIRO OU FALSO</h3>
+            <p>V ou F: Artigo de Opinião</p>
+          <a href="Artigo de opiniao.html"> <button>JOGAR</button></a> 
+        </div> 
+    </div> 
+    <div>
+        <div class="card">
+       
+            <h3 class="letramaior">CONECTANDO PALAVRAS</h3>
+            <p>Conectando: Dissertação </p>
+           <a href="dissertação.html"><button>JOGAR</button></a> 
+        </div>
+        <div class="card">
+            
+            <h3 class="letramaior">PORTUFUGA</h3>
+            <p>PortuFuga: ContoPsicológico</p>
+            <a href="glassauro.html"> <button>JOGAR</button></a>
+        </div></div>
+        <div>
+        <div class="card">
+            
+            <h3 class="letramaior">QUAL É A PALAVRA?</h3>
+            <p>Adivinhe: Artigo científico.</p>
+           <a href="adivinhe.html"> <button>JOGAR</button></a>
+        </div>
+        <div class="card">
+            
+            <h3 class="letramaior">QUEBRA CABEÇA</h3>
+            <p>Jogo dos substântivos</p>
+           <a href="puzzle.html"> <button>JOGAR</button></a>
+        </div></div>
+    </div>
+</section>
+<!-------------------------------------- FOOTER ----------------------------------------->
+<footer class="pixel-art-footer">
+    <div class="footer-content">
+      <br>
+        <h1 class="footer-title">PortuGlaucia</h1>
+        <p class="footer-description">
+           Aqui você encontra material de apoio, jogos para colocar seu conhecimento em prática, e
+           aprender coisas novas na língua portuguesa.
+        </p>
+        
+        <div class="social-icons">
+            <a href="https://clubedeautores.com.br/livro/shoes-rumo-ao-sol" class="icon"><img src="imagens/menu_book_40dp_FILL0_wght400_GRAD0_opsz40.png" alt="Facebook"></a>
+            <a href="https://open.spotify.com/show/3EkcI3lSMxblr7cwYMeP2V" class="icon"><img src="imagens/spotify_icon_136176.png" alt="Twitter"></a>
+        
+        </div>
+    </div>
+    <div class="footer-bottom">
+    
+        <p>&copy;2024 SENAI DIADEMA      <a class="link_footer" href="#">PORTUGLAUCIA</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
